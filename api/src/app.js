@@ -1,6 +1,5 @@
 const express = require('express');
-const server = express();
-/* 
+
 const cookieParser = require('cookie-parser');
 //const bodyParser = require('body-parser');
 const morgan = require('morgan');
@@ -35,6 +34,6 @@ server.use((err, req, res, next) => { // eslint-disable-line no-unused-vars
   console.error(err);
   res.status(status).send(message);
 });
-*/
+
 
 module.exports = server;
