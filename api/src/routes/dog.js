@@ -1,14 +1,18 @@
 const router = require('express').Router();
-const { getAllDogs } = require('../controllers/dog');
+
+const { getAllDogs } = require('../controllers/getAllDogs');
+const { postDog } = require('../controllers/postDog');
+
+router.get('/', getAllDogs);
+router.post('/', postDog);
+
+module.exports = router;
 
 /* 
 router.get('/', (req, res) => {
 	res.send('hola estoy en la ruta principal de Dogs / ...');
 });
  */
-
-router.get('/', getAllDogs);
-
 
 /*
 router.get('/', async function(req, res){
@@ -40,5 +44,3 @@ router.get('/:id', async function(req, res, next){
 
 });
 */
-
-module.exports = router;
