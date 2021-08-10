@@ -2,9 +2,11 @@ const router = require('express').Router();
 
 const { getAllDogs } = require('../controllers/getAllDogs');
 const { postDog } = require('../controllers/postDog');
+const { getDetailDog } = require('../controllers/getDetailDog')
 
 router.get('/', getAllDogs);
 router.post('/', postDog);
+router.get('/:idRaza', getDetailDog);
 
 module.exports = router;
 
