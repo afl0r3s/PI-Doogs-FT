@@ -1,4 +1,4 @@
-import { ADD_BREED } from '../actions/actionTypes'
+import { GET_BREEDS } from '../actions/actionTypes'
 
 const initialState = {
 	allBreeds: [],
@@ -10,10 +10,9 @@ const initialState = {
 function rootReducer(state = initialState, action) {
 	//console.log(action)
 	switch (action.type) {
-		case ADD_BREED:
+		case GET_BREEDS:
 			return {
 				...state,
-				moviesFavourites: state.moviesFavourites.concat(action.payload),
 			};
 
 		// case 'LOADING':

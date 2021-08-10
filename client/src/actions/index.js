@@ -1,4 +1,4 @@
-import { ADD_BREED } from './actionTypes'
+import { GET_BREEDS } from './actionTypes'
 
 /*
 export const getMovies = (titulo) =>{
