@@ -1,8 +1,10 @@
-import { GET_BREEDS } from '../1_actions/actionTypes'
+import { GET_BREEDS, LOADING } from '../1_actions/actionTypes'
+const breedsPerPage = 9;
 
 const initialState = {
 	breeds: [],
-	//loading: false,
+	loading: false,
+	totalPages: 0,
 	// moviesFavourites: [],
 	// movieDetail: {},
 };
@@ -13,9 +15,15 @@ function rootReducer(state = initialState, action) {
 		case GET_BREEDS:
 			return {
 				...state,
-				breeds: action.payload
+				loading: false,
+				breeds: action.payload,
+				totalPages: Math.ceil(action.payload.length / breedsPerPage),
 			};
-
+		case LOADING:
+			return {
+				...state,
+				loading: true,
+			};
 		// case 'LOADING':
 		// 	return {
 		// 		...state,

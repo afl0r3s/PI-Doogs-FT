@@ -1,22 +1,17 @@
 import React from 'react'
 import './Pagination.css'
 
-export default function Pagination({cardsPerPage, totalCards, paginate}) {
-    const pageNumbers = [];
+export default function Pagination({ totalPages, paginateFunction }) {
+    const pages = [...Array(totalPages).keys()].map(num => num+1);
 
-    for (let i = 1; i < Math.ceil(totalCards / cardsPerPage); i++) {
-        pageNumbers.push(i)
-        
-    }
     return (
-        <nav>
-            <ul className="pagination">
-                {pageNumbers.map(e => (
-                    <li key={e} className="pageItem">
-                        <a onClick={() => paginate(e)} href="/home" className="pageLink">{e}</a>
-                    </li>
-                ))}
-            </ul>
-        </nav>
+        <div>
+            {pages.map(num => (
+                <button 
+                    key={num}
+                    onClick={() => paginateFunction(num)}
+                > {num} </button>
+            ))}
+        </div>
     )
 }

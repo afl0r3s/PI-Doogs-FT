@@ -1,9 +1,10 @@
 import axios from 'axios';
 
-import { GET_BREEDS } from './actionTypes';
+import { GET_BREEDS, LOADING } from './actionTypes';
 
 export const getBreeds = () => {
 	return async (dispatch) => {
+		dispatch({ type: LOADING})
 		var breedsInfo = await axios.get('http://localhost:3001/dogs');
 		return dispatch({ type: GET_BREEDS, payload: breedsInfo.data})
 	}
