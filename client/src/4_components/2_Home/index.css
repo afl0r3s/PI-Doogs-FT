@@ -1,0 +1,48 @@
+body{
+    margin-left: 0px;
+}
+
+.cardContainer{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 250px);
+    gap: 50px;
+    padding: 15px;
+    justify-content: center;
+}
+
+@media (max-width: 560px){
+    .cardContainer{
+        grid-template-columns: 100%;
+    }
+}
+
+.card {
+    border-radius: 20px;
+    border: 1px solid black;
+    padding: 10px;
+    width: 260px;
+    text-align: center;
+}
+.card img {
+    border-radius: 50px;
+    background-color: azure;
+    width: 250px;
+    height: 250px;
+}
+
+@media (max-width: 560px){
+    .card img {
+        width: 90%;
+        height: auto;
+    }
+}
+
+
+.breedName{
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.breedTemnperaments{
+    font-size: 0.9rem;
+}

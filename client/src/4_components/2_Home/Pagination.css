@@ -1,0 +1,13 @@
+.pagination{
+    list-style: none;
+    border: 1px solid black;
+}
+
+.pageItem{
+    border: 1px solid brown;
+    display:inline-flex;
+    flex-direction: row;
+    flex-wrap:wrap;
+    justify-content: center;
+    width: 30px;
+}
