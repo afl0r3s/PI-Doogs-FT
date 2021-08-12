@@ -1,4 +1,14 @@
-import { GET_BREEDS } from './actionTypes'
+import axios from 'axios';
+
+import { GET_BREEDS } from './actionTypes';
+
+export const getBreeds = () => {
+	return async (dispatch) => {
+		var breedsInfo = await axios.get('http://localhost:3001/dogs');
+		return dispatch({ type: GET_BREEDS, payload: breedsInfo.data})
+	}
+
+}
 
 /*
 export const getMovies = (titulo) =>{

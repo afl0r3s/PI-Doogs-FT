@@ -1,7 +1,7 @@
-import { GET_BREEDS } from '../actions/actionTypes'
+import { GET_BREEDS } from '../1_actions/actionTypes'
 
 const initialState = {
-	allBreeds: [],
+	breeds: [],
 	//loading: false,
 	// moviesFavourites: [],
 	// movieDetail: {},
@@ -13,6 +13,7 @@ function rootReducer(state = initialState, action) {
 		case GET_BREEDS:
 			return {
 				...state,
+				breeds: action.payload
 			};
 
 		// case 'LOADING':
