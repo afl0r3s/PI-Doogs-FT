@@ -1,8 +1,8 @@
 import { Switch, Route } from 'react-router-dom';
 
 //-- Importamos
-import LandingPage from './4_components/1_Landing';
-import Home from './4_components/2_Home';
+import LandingPage from './4_components/1_Landing/landing';
+import Home from './4_components/2_Home/home';
 import Detail from './4_components/3_Detail';
 import Add  from './4_components/4_Create'
 

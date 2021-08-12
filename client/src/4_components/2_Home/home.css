@@ -1,6 +1,7 @@
 body{
     margin-left: 0px;
-}
+    background-image: url('./dog_fondo.jpg');
+    }
 
 .cardContainer{
     display: grid;

@@ -2,8 +2,8 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getBreeds } from '../../1_actions';
-import Pagination from './Pagination';
-import './index.css';
+import Pagination from './pagination';
+import './home.css';
 
 export default function Home() {
 	var breedsArr = useSelector((state) => state.breeds);
