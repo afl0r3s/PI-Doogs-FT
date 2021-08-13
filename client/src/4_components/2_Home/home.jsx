@@ -31,6 +31,14 @@ export default function Home() {
 		setCurrentPage(num);
 	}
 
+	function previosPage () {
+		setCurrentPage((currentPage) => currentPage - 1 )
+	}
+
+	function nextPage () {
+		setCurrentPage((currentPage) => currentPage + 1 )
+	}
+
 	return (
 		<div>
 			<h3>Dogs Mania Page..</h3>
@@ -38,7 +46,9 @@ export default function Home() {
 				<>
 					<img width="230" src="./dog01.gif" alt="loading.."/>
 				</> : 
-				<>
+				<>	
+					<button onClick={() => previosPage()} > Back </button>
+					<button onClick={() => nextPage()}> Next </button>
 					<div className="cardContainer">
 						{currentCards.map((e) => {
 							return (

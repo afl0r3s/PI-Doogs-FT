@@ -9,9 +9,10 @@ export default function Landing() {
                 <h1>Dog Mania</h1>
                 <div className="text">The place for Dog lovers...</div>
                 <Link to={'/home'}>
-                    <button className="button">Go Home</button>
+                    <button className="button">Start &#187; </button>
                 </Link>
-                <div className="develop">"Soy Henry" P.I. developed by<br/>Sergio Jose Alejandro Flores</div>
+                <div className="develop">"Soy Henry" P.I. App<br/>Developed by Alejandro Flores</div>
+                <span class="material-icons-outlined">home</span>
             </div>
         </div>
     )

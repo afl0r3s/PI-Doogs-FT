@@ -13,7 +13,7 @@ async function loadBD(){
         temperaments = temperaments.filter((item,index)=> temperaments.indexOf(item) === index).sort();
         let temperamentesForBD = temperaments.map(t => { return { name: t } });
         await Temperament.bulkCreate(temperamentesForBD) ;
-        console.log(temperamentesForBD);
+        //console.log(temperamentesForBD);
     } catch (error) {
         console.log(error);
     }

@@ -26,6 +26,6 @@ const { loadBD } = require('./src/controllers/loadBD');
 conn.sync({ force: true, alter: true }).then(() => {
   loadBD();
   server.listen(3001, () => {
-    console.log('Server listening at 3001'); // eslint-disable-line no-console
+    console.log('%s listening at 3001'); // eslint-disable-line no-console
   });
 });
