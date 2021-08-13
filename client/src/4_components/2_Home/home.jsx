@@ -1,69 +1,34 @@
 /* eslint-disable */
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getBreeds } from '../../1_actions';
-import Pagination from './pagination';
+import Navsearch from './1_NavSearch/navsearch';
+import Navfilter from './2_NavFilter/navfilter';
+import Contentdisplay from './3_ContentDisplay/contentdisplay';
 import './home.css';
 
 export default function Home() {
-	var breedsArr = useSelector((state) => state.breeds);
 	var loadState = useSelector((state) => state.loading);
-	var totalPages = useSelector((state) => state.totalPages);
 	const dispatch = useDispatch();
-	//console.log('1', totalPages);
 
-	//const [loading, setLoading] = useState(false);
-	const [currentPage, setCurrentPage] = useState(1);
-	const [cardPerPage] = useState(9);
-	// console.log('3', breedsArr.length);
-	
 	useEffect(() => {
 		dispatch(getBreeds()); 
 	}, [dispatch]);
 	
-	
-	//Datos para paginacion
-	const indexOfLastCard = currentPage * cardPerPage;
-	const idnexOfFirstCard = indexOfLastCard - cardPerPage;
-	const currentCards = breedsArr.slice(idnexOfFirstCard, indexOfLastCard);
-
-    const paginateFunction = num => {
-		setCurrentPage(num);
-	}
-
-	function previosPage () {
-		setCurrentPage((currentPage) => currentPage - 1 )
-	}
-
-	function nextPage () {
-		setCurrentPage((currentPage) => currentPage + 1 )
-	}
 
 	return (
 		<div>
-			<h3>Dogs Mania Page..</h3>
 			{loadState ? 
 				<>
+					<Navsearch />
 					<img width="230" src="./dog01.gif" alt="loading.."/>
 				</> : 
-				<>	
-					<button onClick={() => previosPage()} > Back </button>
-					<button onClick={() => nextPage()}> Next </button>
-					<div className="cardContainer">
-						{currentCards.map((e) => {
-							return (
-								<div key={e.id} className="card">
-									<img src={e.image} alt={e.name} />
-									<div className="breedName">{e.name} &nbsp; #{e.id}</div>
-                        			<div className="breedTemnperaments">{e.temperament}</div>
-								</div>
-							);
-						})}
-					</div>
-					<Pagination totalPages={totalPages} paginateFunction={paginateFunction } />
+				<> 
+					<Navsearch />
+					<Navfilter />
+					<Contentdisplay />
 				</>
 			}
 		</div> 
 	);
 }
-

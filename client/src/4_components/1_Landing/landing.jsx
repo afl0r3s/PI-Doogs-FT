@@ -12,7 +12,6 @@ export default function Landing() {
                     <button className="button">Start &#187; </button>
                 </Link>
                 <div className="develop">"Soy Henry" P.I. App<br/>Developed by Alejandro Flores</div>
-                <span class="material-icons-outlined">home</span>
             </div>
         </div>
     )
