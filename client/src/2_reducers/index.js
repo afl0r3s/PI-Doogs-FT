@@ -6,6 +6,8 @@ import {
 	FILTER_SOURCE,
 	SORT_ALPHABETIC,
 	SORT_WEIGHT,
+	GET_TEMPERAMENTS,
+	GET_BREEDTEMPER,
 	LOADING,
 } from '../1_actions/actionTypes'
 
@@ -13,6 +15,7 @@ const initialState = {
 	breeds: [],
 	breedsAll: [],
 	breedDetail: [],
+	temperaments: [],
 	loading: false,
 	totalPages: 0,
 	breedsPerPage: [9,12],
@@ -30,6 +33,11 @@ function rootReducer(state = initialState, action) {
 				breeds: action.payload,
 				breedsAll: action.payload,
 				totalPages: Math.ceil(action.payload.length / state.breedsPerPage[0]),
+			};
+		case GET_TEMPERAMENTS:
+			return {
+				...state,
+				temperaments: action.payload,
 			};
 		case GET_BREEDS_NAME:
 			return {
@@ -110,6 +118,18 @@ function rootReducer(state = initialState, action) {
 				errorSearch: false,
 				breeds: sortArray2,
 				totalPages: Math.ceil(sortArray2.length / state.breedsPerPage[0]),
+			};
+		case GET_BREEDTEMPER:
+			var breedTemnperaments = state.breedsAll;
+			breedTemnperaments = action.payload === 'ALL' ? 
+				breedTemnperaments = state.breedsAll :
+				breedTemnperaments = breedTemnperaments.filter(e => e.temperament && e.temperament.includes(action.payload))
+			return {
+				...state,
+				loading: false,
+				errorSearch: false,
+				breeds: breedTemnperaments,
+				totalPages: Math.ceil(breedTemnperaments.length / state.breedsPerPage[0]),
 			};
 		case ERROR_SEARCH:
 			return {

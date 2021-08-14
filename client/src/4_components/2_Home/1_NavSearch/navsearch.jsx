@@ -16,14 +16,18 @@ export default function Navsearch() {
 
     return (
         <nav className="navSearch">
-            <span>Logo de la Aplicacion</span>
-            <Search />
-            <Link to={'/home'}>
-                <button  onClick={(e)=> handleClick(e)}>Home</button>
-            </Link>
-            <Link to={'/add'}>
-                <button>Create Breed</button>
-            </Link>
+            <div> <span className="appTitle">Dog Mania App</span> </div>
+            <div> <Search /> </div>
+            <div>
+                <Link to={'/home'}>
+                    <button className="navSearchHome" onClick={(e)=> handleClick(e)}>Home</button>
+                </Link>
+                <Link to={'/add'}>
+                    <button className="navSearchCreate">Create Breed</button>
+                </Link>
+            </div>
+            
+            
         </nav>
     )
 }

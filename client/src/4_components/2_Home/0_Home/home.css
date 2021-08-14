@@ -1,7 +1,7 @@
 body{
     margin: 0px;
     padding: 0px;
-    background-color: white;
+
     
-    /* background-image: url('./dog_fondo.jpg');  */
+    background: white url('./dog_fondo.jpg') no-repeat ;
 }

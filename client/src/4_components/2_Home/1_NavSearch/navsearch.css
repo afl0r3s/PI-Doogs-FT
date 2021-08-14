@@ -1,8 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
+
 .navSearch{
+    color: white;
     margin-top: -20px;
-    height: 50px;
-    background-color:wheat;
+    height: 60px;
+    background-color:black;
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.appTitle{
+    font-family: 'Righteous', cursive;
+    font-size: 20px;
+}
+
+.imputSearch {
+    width: 250px;
+    height: 28px;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.buttonSearch{
+    margin-left: 5px;
+    background-color: #4CAF50;
+    border: 1px solid white;
+    border-radius: 10px;
+    width: 100px;
+    height: 28px;
+}
+
+.navSearchHome{
+    margin-left: 5px;
+    background-color:tan;
+    border: 1px solid white;
+    border-radius: 10px;
+    width: 100px;
+    height: 28px;
+}
+
+.navSearchCreate{
+    margin-left: 5px;
+    background-color:steelblue;
+    border: 1px solid white;
+    border-radius: 10px;
+    width: 100px;
+    height: 28px;
 }

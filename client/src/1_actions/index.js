@@ -8,6 +8,8 @@ import {
 	FILTER_SOURCE,
 	SORT_ALPHABETIC,
 	SORT_WEIGHT,
+	GET_TEMPERAMENTS,
+	GET_BREEDTEMPER,
 	LOADING ,
 } from './actionTypes';
 
@@ -54,7 +56,6 @@ export const sortAlphabetic = (payload) => {
 	return (dispatch) => {
 		dispatch({ type: LOADING})
 		return dispatch({ type: SORT_ALPHABETIC, payload})
-
 	}
 }
 
@@ -62,11 +63,22 @@ export const sortweight = (payload) => {
 	return (dispatch) => {
 		dispatch({ type: LOADING})
 		return dispatch({ type: SORT_WEIGHT, payload})
-
 	}
 }
 
+export const getTemperaments = () => {
+	return async (dispatch) => {
+		var temperamentsInfo = await axios.get(`http://localhost:3001/temperament`);
+		return dispatch({ type: GET_TEMPERAMENTS, payload: temperamentsInfo.data})
+	}
+}
 
+export const getBreedstTemperaments = (payload) => {
+	return async (dispatch) => {
+		dispatch({ type: LOADING})
+		return dispatch({ type: GET_BREEDTEMPER, payload})
+	}
+}
 
 /*
 

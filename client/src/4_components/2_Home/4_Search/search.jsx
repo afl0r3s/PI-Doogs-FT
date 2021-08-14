@@ -33,7 +33,7 @@ export default function Search() {
         <form onSubmit={handleSubmit}>
             <input 
                 type="search" 
-                placeholder="write here the dog breed for search"
+                placeholder="write a dog breed for search.."
                 className="imputSearch"
                 value={breedName}
                 onChange={(e) => handleChange(e)}
