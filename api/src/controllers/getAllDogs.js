@@ -30,30 +30,39 @@ async function getAllDogs(req, res, next) {
 				});
 			}
 			if (dogsInfoApiNameRes.data.length === 0) {
-				var dogsInfoByNameShow = ['no results found...'];
+				var dogsInfoByNameShow = {
+					id: 0,
+					name: "No results",
+					temperament: "--",
+					image: "https://cdn2.thedogapi.com/images/S1nhWx94Q.jpg"
+				};
 			}
 			if (dogsInfoApiNameRes.data.length > 0) {
 				let imagesApi = dogsInfoApi.data.map((i) => {
+					//console.log(i.id, i.image.id, i.image.url)
 					return {
 						id: i.image.id,
 						value: i.image.url,
 					};
 				});
-				var dogsInfoByNameShow = dogsInfoApiNameRes.data.map((d) => {
-					let auxSearch = imagesApi.filter((e) => e.id === d.reference_image_id);
+				var dogsInfoByNameShow = dogsInfoApiNameRes.data.filter(e => e.reference_image_id !== undefined) 
+				dogsInfoByNameShow = dogsInfoByNameShow.map(e => {
+					let auxSearch = imagesApi.filter((f) => f.id === e.reference_image_id);
 					return {
-						id: d.id,
-						name: d.name,
-						temperament: d.temperament,
+						id: e.id,
+						name: e.name,
+						temperament: e.temperament,
 						image: auxSearch[0].value,
-					};
+					}
 				});
 			}
 			//console.log('1', dogsInfoLocalNameRes.concat(dogsInfoByNameShow));
 			res.send(dogsInfoLocalNameRes.concat(dogsInfoByNameShow));
-		} catch (error) {
+		} 
+		catch (error) {
 			next(error);
 		}
+		
 	} else {
 		try {
 			let dogsInfoLocal = await Dog.findAll({ include: Temperament });
