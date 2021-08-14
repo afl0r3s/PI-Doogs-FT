@@ -72,6 +72,8 @@ async function getAllDogs(req, res, next) {
 					name: dl.name,
 					temperament: dl.temperaments.map((t) => t.name).join(', '),
 					image: dl.image,
+					weight: dl.weight,
+					origin: 'DB'
 				};
 			});
 			let dogsInfoShow = dogsInfoApi.data.map((d) => {
@@ -80,6 +82,8 @@ async function getAllDogs(req, res, next) {
 						name: d.name,
 						temperament: d.temperament,
 						image: d.image.url,
+						weight: d.weight.metric,
+						origin: 'API'
 					};
 				});
 			//console.log("1",dogsInfoLocal.concat(dogsInfoShow))
