@@ -8,7 +8,7 @@ export default function Card({id, image, name, temperament}) {
             <div className="card">
 				<img src={image} alt={name} />
 				<div className="breedName">
-					{name} &nbsp; #{id}
+					{name}
                     <div className="breedTemnperaments">{temperament}</div>
 				</div>
 			</div>

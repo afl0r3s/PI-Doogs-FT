@@ -1,0 +1,17 @@
+.navfiltercontent{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    height: 80px;
+    padding: 0;
+    background-color: hotpink; 
+}
+
+.navfilGroup{
+    border: 1px solid black;
+    margin: 10px;
+}
+.navfilTitle{
+    background-color:dodgerblue;
+}

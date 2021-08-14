@@ -18,6 +18,8 @@ export default function Contentdisplay() {
 	const indexOfLastCard = currentPage * breedsPerPage[0];
 	const idnexOfFirstCard = indexOfLastCard - breedsPerPage[0];
 	const currentCards = breedsArr.slice(idnexOfFirstCard, indexOfLastCard);
+	//console.log('Data show:', breedsArr)
+
 	const paginateFunction = (num) => {
 		setCurrentPage(num);
 	};

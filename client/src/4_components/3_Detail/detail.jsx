@@ -13,10 +13,10 @@ export default function Detail() {
 	var loadState = useSelector((state) => state.loading);
 	var breedDetail = useSelector((state) => state.breedDetail);
 	var breedId = location.pathname.split('/').pop();
-	console.log('1', breedDetail);
+	//console.log('1>', breedId);
 
 	useEffect(() => {
-		dispatch(getDetail(Number(breedId)));
+		dispatch(getDetail(breedId));
 	}, [dispatch]);
 
     const handleClick = (e) => {

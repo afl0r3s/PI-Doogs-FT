@@ -5,6 +5,9 @@ import {
 	GET_BREEDS_NAME, 
 	ERROR_SEARCH,
 	GET_DETAIL,
+	FILTER_SOURCE,
+	SORT_ALPHABETIC,
+	SORT_WEIGHT,
 	LOADING ,
 } from './actionTypes';
 
@@ -39,32 +42,38 @@ export const getDetail = (id) => {
 	}
 }
 
-/*
-export const getMovies = (titulo) =>{
+export const filterSource = (payload) => {
 	return (dispatch) => {
-		return fetch(`http://www.omdbapi.com/?apikey=20dac387&s=${titulo}`)
-			.then(response => response.json())
-			.then(obj => {
-				dispatch({ type: GET_MOVIES, payload: obj })
-			})
+		dispatch({ type: LOADING})
+		return dispatch({ type: FILTER_SOURCE, payload})
+
 	}
-};
+}
+
+export const sortAlphabetic = (payload) => {
+	return (dispatch) => {
+		dispatch({ type: LOADING})
+		return dispatch({ type: SORT_ALPHABETIC, payload})
+
+	}
+}
+
+export const sortweight = (payload) => {
+	return (dispatch) => {
+		dispatch({ type: LOADING})
+		return dispatch({ type: SORT_WEIGHT, payload})
+
+	}
+}
+
+
+
+/*
 
 export const addMovieFavorite = (movie) => { //payload, obj que respresenta una movie
 	return {
 		type: ADD_MOVIE_FAVORITE,
 		payload: movie
-	}
-};
-
-export const getMovieDetails = (id) =>{ //el id lo recibimos de un button al que se le hace clic
-    return (dispatch) => {
-		//dispatch({type: 'LOADING'});
-		return fetch(`http://www.omdbapi.com/?apikey=20dac387&i=${id}`)
-			.then(response => response.json())
-			.then(obj => {
-				dispatch({ type: GET_MOVIES_DETAILS, payload: obj });
-			})
 	}
 };
 
