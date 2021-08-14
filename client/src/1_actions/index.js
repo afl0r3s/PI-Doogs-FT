@@ -3,7 +3,8 @@ import axios from 'axios';
 import { 
 	GET_BREEDS, 
 	GET_BREEDS_NAME, 
-	ERROR_SEARCH, 
+	ERROR_SEARCH,
+	GET_DETAIL,
 	LOADING ,
 } from './actionTypes';
 
@@ -26,6 +27,15 @@ export const getBreedsName = (nameBreed) => {
 			return dispatch({ type: GET_BREEDS_NAME, payload: breedsInfo2.data})
 
 		}
+	}
+}
+
+export const getDetail = (id) => {
+	return async (dispatch) => {
+		dispatch({ type: LOADING})
+		var breedsInfo = await axios.get(`http://localhost:3001/dogs/${id}`);
+		return dispatch({ type: GET_DETAIL, payload: breedsInfo.data})
+
 	}
 }
 

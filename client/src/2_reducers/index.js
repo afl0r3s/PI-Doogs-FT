@@ -2,12 +2,14 @@ import {
 	GET_BREEDS, 
 	GET_BREEDS_NAME, 
 	ERROR_SEARCH,
+	GET_DETAIL,
 	LOADING,
 } from '../1_actions/actionTypes'
 //const breedsPerPage = 9;
 
 const initialState = {
 	breeds: [],
+	breedDetail: [],
 	loading: false,
 	totalPages: 0,
 	breedsPerPage: [9,12],
@@ -35,13 +37,19 @@ function rootReducer(state = initialState, action) {
 					breeds: action.payload,
 					totalPages: Math.ceil(action.payload.length / state.breedsPerPage[0]),
 				};
+		case GET_DETAIL:
+			return {
+				...state,
+				loading: false,
+				breedDetail: action.payload,
+				totalPages: Math.ceil(action.payload.length / state.breedsPerPage[0]),
+			};
 		case ERROR_SEARCH:
 			return {
 				...state,
 				loading: false,
 				errorSearch: true,
-				breeds: action.payload,
-				totalPages: 0,
+				breedDetail: action.payload,
 			};
 		case LOADING:
 			return {
