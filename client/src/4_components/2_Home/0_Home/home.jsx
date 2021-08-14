@@ -1,10 +1,9 @@
-/* eslint-disable */
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { getBreeds } from '../../1_actions';
-import Navsearch from './1_NavSearch/navsearch';
+import { getBreeds } from '../../../1_actions';
+import Navsearch from '../1_NavSearch/navsearch';
 
-import Contentdisplay from './3_ContentDisplay/contentdisplay';
+import Contentdisplay from '../3_ContentDisplay/contentdisplay';
 import './home.css';
 
 export default function Home() {
@@ -25,7 +24,6 @@ export default function Home() {
 				</> : 
 				<> 
 					<Navsearch />
-					
 					<Contentdisplay />
 				</>
 			}

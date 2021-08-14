@@ -1,0 +1,41 @@
+a:link, a:visited, a:active {
+    text-decoration:none;
+}
+
+.card {
+    border-radius: 10px;
+    border: 1px solid black;
+    background-color:white;
+    margin: 2px;
+    padding: 0px;
+    width: 270px;
+    height: 275px;;
+    text-align: center;
+}
+.card img {
+    margin-top: 5px;;
+    border-radius: 10px;
+    background-color: azure;
+    width: 260px;
+    height: 250px;
+}
+
+.breedName{
+    margin-top: -65px;
+    margin-left: 5px;
+    border: 1px solid black;
+    width: 258px;
+    height: 75px;
+    border-radius: 10px;
+    position: relative;
+    z-index: 2;
+    background-color:dimgrey;
+    opacity: 1.0;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: black;
+}
+
+.breedTemnperaments{
+    font-size: 0.9rem;
+}

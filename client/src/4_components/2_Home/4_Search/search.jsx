@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
- import { useDispatch } from 'react-redux'
- import { getBreedsName } from '../../../1_actions';
+import { useDispatch } from 'react-redux'
+import { getBreedsName } from '../../../1_actions';
 
 export default function Search() {
     const dispatch = useDispatch();

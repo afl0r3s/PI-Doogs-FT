@@ -1,5 +1,5 @@
 import React from 'react'
-import './Pagination.css'
+import './pagination.css'
 
 export default function Pagination({ totalPages, paginateFunction }) {
     const pages = [...Array(totalPages).keys()].map(num => num+1);

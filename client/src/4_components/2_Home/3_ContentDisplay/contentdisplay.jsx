@@ -1,16 +1,18 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
-import Pagination from '../pagination';
+import Pagination from '../5_Pagination/pagination';
 import Navfilter from '../2_NavFilter/navfilter';
+import Card from '../6_Card/card';
+import ErrorSearch from '../7_ErrorSearch/errorSearch';
 import './contentdisplay.css';
 
 export default function Contentdisplay() {
-	//Acces to Redux States
+	//Access to Redux States
 	var breedsArr = useSelector((state) => state.breeds);
 	var totalPages = useSelector((state) => state.totalPages);
 	var breedsPerPage = useSelector((state) => state.breedsPerPage);
 	var errorSearch = useSelector((state) => state.errorSearch);
-	//Reac States
+	//React States
 	const [currentPage, setCurrentPage] = useState(1);
 	//For Pagination
 	const indexOfLastCard = currentPage * breedsPerPage[0];
@@ -31,12 +33,7 @@ export default function Contentdisplay() {
 			{errorSearch ? (
 				<>
 					<div className="cardContainer">
-						<div key="0" className="card">
-							<img width="230" src="./sad_dog.png" alt="error.." />
-							<div className="breedName">
-								No results found ...
-							</div>
-						</div>
+						<ErrorSearch />
 					</div>
 				</>
 			) : (
@@ -44,22 +41,16 @@ export default function Contentdisplay() {
 					<Navfilter />
 					<button onClick={() => previosPage()}> Back </button>
 					<button onClick={() => nextPage()}> Next </button>
+					<Pagination totalPages={totalPages} paginateFunction={paginateFunction} />
 					<div className="cardContainer">
-						{currentCards.map((e) => {
-							return (
-								<div key={e.id} className="card">
-									<img src={e.image} alt={e.name} />
-									<div className="breedName">
-										{e.name} &nbsp; #{e.id}
-									</div>
-									<div className="breedTemnperaments">{e.temperament}</div>
-								</div>
-							);
-						})}
+						{currentCards.map((e) => (
+								<Card key={e.id} id={e.id} image={e.image} name={e.name} temperament={e.temperament} />
+							))
+						}
 					</div>
 				</>
 			)}
-			<Pagination totalPages={totalPages} paginateFunction={paginateFunction} />
+			
 		</div>
 	);
 }

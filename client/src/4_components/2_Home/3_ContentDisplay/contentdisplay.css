@@ -6,29 +6,3 @@
     flex-wrap: wrap;
     justify-content: center;
 }
-
-.card {
-    border-radius: 20px;
-    border: 1px solid black;
-    margin: 0px;
-    padding: 10px;
-    width: 260px;
-    text-align: center;
-}
-.card img {
-    border-radius: 50px;
-    background-color: azure;
-    width: 250px;
-    height: 250px;
-}
-
-
-
-.breedName{
-    font-size: 1.1rem;
-    font-weight: bold;
-}
-
-.breedTemnperaments{
-    font-size: 0.9rem;
-}

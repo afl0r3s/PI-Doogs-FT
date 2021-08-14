@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import Search from '../2_Search/search'
+import Search from '../4_Search/search'
 import { useDispatch } from 'react-redux'
 import { getBreeds } from '../../../1_actions';
 import './navsearch.css'
