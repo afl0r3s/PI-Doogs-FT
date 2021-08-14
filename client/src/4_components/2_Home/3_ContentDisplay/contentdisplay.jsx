@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import Pagination from '../pagination';
+import './contentdisplay.css'
 
 export default function Contentdisplay() {
 	var breedsArr 	  = useSelector((state) => state.breeds);
