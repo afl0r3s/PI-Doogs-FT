@@ -1,14 +1,32 @@
 import axios from 'axios';
 
-import { GET_BREEDS, LOADING } from './actionTypes';
+import { 
+	GET_BREEDS, 
+	GET_BREEDS_NAME, 
+	ERROR_SEARCH, 
+	LOADING ,
+} from './actionTypes';
 
 export const getBreeds = () => {
 	return async (dispatch) => {
 		dispatch({ type: LOADING})
-		var breedsInfo = await axios.get('http://localhost:3001/dogs');
+		var breedsInfo = await axios.get(`http://localhost:3001/dogs`);
 		return dispatch({ type: GET_BREEDS, payload: breedsInfo.data})
 	}
+}
 
+export const getBreedsName = (nameBreed) => {
+	return async (dispatch) => {
+		dispatch({ type: LOADING})
+		var breedsInfo2 = await axios.get(`http://localhost:3001/dogs?name=${nameBreed}`);
+		if(breedsInfo2.data[0].id === 0){
+			return dispatch({ type: ERROR_SEARCH, payload: [{id:0, name:'WarnError'}]})
+			
+		}else{
+			return dispatch({ type: GET_BREEDS_NAME, payload: breedsInfo2.data})
+
+		}
+	}
 }
 
 /*

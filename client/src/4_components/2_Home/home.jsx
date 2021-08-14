@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getBreeds } from '../../1_actions';
 import Navsearch from './1_NavSearch/navsearch';
-import Navfilter from './2_NavFilter/navfilter';
+
 import Contentdisplay from './3_ContentDisplay/contentdisplay';
 import './home.css';
 
@@ -25,7 +25,7 @@ export default function Home() {
 				</> : 
 				<> 
 					<Navsearch />
-					<Navfilter />
+					
 					<Contentdisplay />
 				</>
 			}
