@@ -2,6 +2,7 @@ const { Dog } = require('../db');
 const { v4: uuidv4 } = require('uuid');
 
 async function postDog(req, res, next) {
+	//console.log(req.body)
 	
 	try {
 		const { name, height, weight, life_span, image, temperamentsArr } = req.body;
@@ -18,7 +19,6 @@ async function postDog(req, res, next) {
 	} catch (error) {
 		next(error);
 	}
-	
 	//res.send('probando');
 }
 
