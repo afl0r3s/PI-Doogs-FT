@@ -8,6 +8,7 @@ import {
 	SORT_WEIGHT,
 	GET_TEMPERAMENTS,
 	GET_BREEDTEMPER,
+	POST_BREED,
 	LOADING,
 } from '../1_actions/actionTypes'
 
@@ -19,7 +20,8 @@ const initialState = {
 	loading: false,
 	totalPages: 0,
 	breedsPerPage: [9,12],
-	errorSearch: false
+	errorSearch: false,
+	statePost: false,
 };
 
 function rootReducer(state = initialState, action) {
@@ -33,6 +35,7 @@ function rootReducer(state = initialState, action) {
 				breeds: action.payload,
 				breedsAll: action.payload,
 				totalPages: Math.ceil(action.payload.length / state.breedsPerPage[0]),
+				statePost: false,
 			};
 		case GET_TEMPERAMENTS:
 			return {
@@ -130,6 +133,13 @@ function rootReducer(state = initialState, action) {
 				errorSearch: false,
 				breeds: breedTemnperaments,
 				totalPages: Math.ceil(breedTemnperaments.length / state.breedsPerPage[0]),
+			};
+		case POST_BREED:
+			var stateSave = false;
+			if(action.payload) stateSave = true;
+			return {
+				...state,
+				statePost: stateSave,
 			};
 		case ERROR_SEARCH:
 			return {

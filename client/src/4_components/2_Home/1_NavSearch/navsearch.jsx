@@ -26,8 +26,6 @@ export default function Navsearch() {
                     <button className="navSearchCreate">Create Breed</button>
                 </Link>
             </div>
-            
-            
         </nav>
     )
 }

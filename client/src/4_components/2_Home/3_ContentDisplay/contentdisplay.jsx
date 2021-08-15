@@ -41,15 +41,15 @@ export default function Contentdisplay() {
 			) : (
 				<>
 					<Navfilter />
-					<button onClick={() => previosPage()}> Back </button>
-					<button onClick={() => nextPage()}> Next </button>
-					<Pagination totalPages={totalPages} paginateFunction={paginateFunction} />
 					<div className="cardContainer">
 						{currentCards.map((e) => (
 								<Card key={e.id} id={e.id} image={e.image} name={e.name} temperament={e.temperament} />
 							))
 						}
 					</div>
+					<button className="buttonPag" onClick={() => previosPage()}> Back </button>
+					<Pagination totalPages={totalPages} paginateFunction={paginateFunction} />
+					<button className="buttonPag" onClick={() => nextPage()}> Next </button>
 				</>
 			)}
 			

@@ -10,6 +10,7 @@ import {
 	SORT_WEIGHT,
 	GET_TEMPERAMENTS,
 	GET_BREEDTEMPER,
+	POST_BREED,
 	LOADING ,
 } from './actionTypes';
 
@@ -80,19 +81,10 @@ export const getBreedstTemperaments = (payload) => {
 	}
 }
 
-/*
-
-export const addMovieFavorite = (movie) => { //payload, obj que respresenta una movie
-	return {
-		type: ADD_MOVIE_FAVORITE,
-		payload: movie
+export const postBreed = (payload) => {
+	return async (dispatch) => {
+		var response = await axios.post(`http://localhost:3001/dog`, payload);
+		return dispatch({ type: POST_BREED, payload: response})
 	}
-};
+}
 
-export const removeMovie = (id) => {
-	return {
-		type: REMOVE_MOVIE_FAVORITE,
-		payload: id
-	}
-};
-*/

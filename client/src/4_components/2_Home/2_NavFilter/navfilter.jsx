@@ -34,9 +34,8 @@ export default function Navfilterordercreate() {
     return (
         <div className="navfiltercontent">
             <div className="navfilGroup">
-                <div className="navfilTitle">Temperament:</div>
                 <select id="select" onChange={(e) => handleFilterTemperament(e)}>
-                <option key="0" value="ALL">All </option>
+                <option key="0" value="ALL">Filter All Temperaments</option>
                     {
                         temperamentsArray.map(e =>  (
                             <option key={e.id} value={e.name}>{e.name}</option>
@@ -46,25 +45,24 @@ export default function Navfilterordercreate() {
                 </select>
             </div>
             <div className="navfilGroup">
-                <div className="navfilTitle">Source By:</div>
                 <select id="select" onChange={(e) => handleFilterCreated(e)}>
-                    <option value='ALL'> All </option>
-                    <option value='API'> Api </option>
-                    <option value="DB"> Database </option>
+                    <option value='ALL'>Filter All Source</option>
+                    <option value='API'>Api</option>
+                    <option value="DB">Database</option>
                 </select>
             </div>
             <div className="navfilGroup">
-                <div className="navfilTitle">Order Alfabetic:</div>
                 <select id="select" onChange={(e) => handleSortAlpha(e)}>
-                    <option value='AZ'> A - Z </option>
-                    <option value="ZA"> Z - A </option>
+                    <option value='ALL'>Order Alphabethic</option>
+                    <option value='AZ'>A - Z</option>
+                    <option value="ZA">Z - A</option>
                 </select>
             </div>
             <div className="navfilGroup">
-                <div className="navfilTitle">Order Weigth:</div>
                 <select id="select" onChange={(e) => handleSortWeight(e)}>
-                    <option value='MoreLess'> + to - </option>
-                    <option value="LessMore"> - to +</option>
+                    <option value='MoreLess'>Order Weigth</option>
+                    <option value='MoreLess'>+ to -</option>
+                    <option value="LessMore">- to +</option>
                 </select>
             </div>
         </div>

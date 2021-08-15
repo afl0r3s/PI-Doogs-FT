@@ -1,13 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
 
-.main{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    
-    margin: 0%;
+.mainConent{
+    margin: -20px 0px 0px 0px;
     padding: 0%;
     width: 100%;
     height: 100vh;
@@ -15,10 +10,14 @@
 }
 
 .content{
+    padding-top: 200px;
+    padding-left: 150px;
+    display: grid;
+    border: 0px solid white;
     color: white;
     font-family: 'Righteous', cursive;
-    margin-top: -150px;
-    margin-left: 350px;
+    width: 500px;
+    height: 350px;
 }
 
 .content h1{

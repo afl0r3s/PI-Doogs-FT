@@ -11,3 +11,17 @@
     justify-content: center;
     width: 30px;
 }
+
+.buttonNum{
+    border: 1px solid black;
+    background-color:royalblue;
+    position: relative;
+    height: 30px;
+    width: 35px;
+    border-radius: 50px;
+}
+
+.buttonNum:hover{
+    background-color:#11339b;
+    color: white;
+}

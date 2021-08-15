@@ -41,7 +41,7 @@ export default function Search() {
             <button
                 type="submit"
                 className="buttonSearch"
-            > Search </button>
+            > <i className="gg-search"></i> &nbsp; Search</button>
         </form>
     )
 }
