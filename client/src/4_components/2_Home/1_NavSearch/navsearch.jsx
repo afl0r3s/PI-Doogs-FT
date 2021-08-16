@@ -20,10 +20,10 @@ export default function Navsearch() {
             <div> <Search /> </div>
             <div>
                 <Link to={'/home'}>
-                    <button className="navSearchHome" onClick={(e)=> handleClick(e)}>Home</button>
+                    <button className="navSearchHome" onClick={(e)=> handleClick(e)}>  Home</button>
                 </Link>
                 <Link to={'/add'}>
-                    <button className="navSearchCreate">Create Breed</button>
+                    <button className="navSearchCreate"> Create Breed</button>
                 </Link>
             </div>
         </nav>

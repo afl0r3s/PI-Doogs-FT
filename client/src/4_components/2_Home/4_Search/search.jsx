@@ -20,7 +20,7 @@ export default function Search() {
                 alert('Breed minimum length musy be of 3 characters !')
             }else{
                 dispatch(getBreedsName(breedName));
-                history.push(`./home`);
+                //history.push(`./home`);
                 setBreedName('');
             }
         }
@@ -41,7 +41,7 @@ export default function Search() {
             <button
                 type="submit"
                 className="buttonSearch"
-            > <i className="gg-search"></i> &nbsp; Search</button>
+            > Search</button>
         </form>
     )
 }

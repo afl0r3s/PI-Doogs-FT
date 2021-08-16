@@ -71,22 +71,26 @@ function rootReducer(state = initialState, action) {
 			};
 		case SORT_ALPHABETIC:
 			var sortArray = state.breedsAll;
-			sortArray =  action.payload === 'ZA' ?
-				sortArray.sort((a,b) => {
-					const value1 = a.name;
-					const value2 = b.name;
-					if(value1 > value2) return -1
-					if(value1 < value2) return 1
-					else { return 0 }
-				})
-			:
-				sortArray.sort((a,b) => {
-					const value1 = b.name;
-					const value2 = a.name;
-					if(value1 > value2) return -1
-					if(value1 < value2) return 1
-					else { return 0 }
-				})
+			if(action.payload === 'ALL' ) sortArray.sort((a,b) => a.id - b.id )
+			else{
+				sortArray =  action.payload === 'ZA' ?
+					sortArray.sort((a,b) => {
+						const value1 = a.name;
+						const value2 = b.name;
+						if(value1 > value2) return -1
+						if(value1 < value2) return 1
+						else { return 0 }
+					})
+				:
+					sortArray.sort((a,b) => {
+						const value1 = b.name;
+						const value2 = a.name;
+						if(value1 > value2) return -1
+						if(value1 < value2) return 1
+						else { return 0 }
+					})
+			}
+
 			return {
 				...state,
 				loading: false,
@@ -96,25 +100,9 @@ function rootReducer(state = initialState, action) {
 			};
 		case SORT_WEIGHT:
 			var sortArray2 = state.breedsAll;
-			console.log('estoy en ordenamiento por peso')
-			
-			sortArray2 =  action.payload === 'LessMore' ?
-				sortArray2.sort((a,b) => {
-					const value1 = a.weight;
-					const value2 = b.weight;
-					if(value1 > value2) return -1
-					if(value1 < value2) return 1
-					else { return 0 }
-				})
-			:
-				sortArray.sort((a,b) => {
-					const value1 = b.weight;
-					const value2 = a.weight;
-					if(value1 > value2) return -1
-					if(value1 < value2) return 1
-					else { return 0 }
-				})
-				
+			if(action.payload === 'ALL' ) sortArray2.sort((a,b) => a.id - b.id )
+			else if(action.payload === 'MoreLess') sortArray2.sort((a,b) => b.weight_min - a.weight_min )
+			else sortArray2.sort((a,b) => a.weight_min - b.weight_min )
 			return {
 				...state,
 				loading: false,

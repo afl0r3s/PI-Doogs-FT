@@ -53,14 +53,14 @@ export default function Navfilterordercreate() {
             </div>
             <div className="navfilGroup">
                 <select id="select" onChange={(e) => handleSortAlpha(e)}>
-                    <option value='ALL'>Order Alphabethic</option>
+                    <option value='ALL'>Order Alphabethic All</option>
                     <option value='AZ'>A - Z</option>
                     <option value="ZA">Z - A</option>
                 </select>
             </div>
             <div className="navfilGroup">
                 <select id="select" onChange={(e) => handleSortWeight(e)}>
-                    <option value='MoreLess'>Order Weigth</option>
+                    <option value='ALL'>Order Weigth All</option>
                     <option value='MoreLess'>+ to -</option>
                     <option value="LessMore">- to +</option>
                 </select>
