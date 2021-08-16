@@ -13,6 +13,9 @@ async function loadBD(){
         temperaments = temperaments.filter((item,index)=> temperaments.indexOf(item) === index).sort();
         let temperamentesForBD = temperaments.map(t => { return { name: t } });
         await Temperament.bulkCreate(temperamentesForBD) ;
+        await Temperament.findOrCreate({
+            where: { name: 'None' }
+        }) 
         //console.log(temperamentesForBD);
     } catch (error) {
         console.log(error);

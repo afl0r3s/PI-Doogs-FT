@@ -62,27 +62,49 @@ async function getAllDogs(req, res, next) {
 		catch (error) {
 			next(error);
 		}
-		
 	} else {
 		try {
 			let dogsInfoLocal = await Dog.findAll({ include: Temperament });
 			dogsInfoLocal = dogsInfoLocal.map((dl) => {
+				var weight_metric_local = dl.weight.split('–').length <= 1 ? dl.weight.split('-') : dl.weight.split('–');
+				var height_metric_local = dl.height.split('–').length <= 1 ? dl.height.split('-') : dl.height.split('–');
 				return {
 					id: dl.id,
 					name: dl.name,
 					temperament: dl.temperaments.map((t) => t.name).join(', '),
 					image: dl.image,
-					weight: dl.weight,
+					weight_min: weight_metric_local[0].trim(),
+					weight_max: weight_metric_local[1].trim(),
+					height_min: height_metric_local[0].trim(),
+					height_max: height_metric_local[1].trim(),
 					origin: 'DB'
 				};
 			});
 			let dogsInfoShow = dogsInfoApi.data.map((d) => {
+				var weight_metric = d.weight.metric.split('–').length <= 1 ? d.weight.metric.split('-') : d.weight.metric.split('–');
+				if(weight_metric[1] === undefined) weight_metric[1] = ''
+				if(d.weight.metric.includes('NaN')) {
+					let weight_imperial = d.weight.imperial.split('–').length <= 1 ? d.weight.imperial.split('-') : d.weight.imperial.split('–')
+					if(isNaN(weight_imperial[0])) {
+						weight_imperial[0]='0';
+					}  
+					weight_metric[0] = ''+ parseInt(weight_imperial[0].trim()) * 0.45
+					weight_metric[1] = ''+ parseInt(weight_imperial[1].trim()) * 0.45
+				}
+				var height_metric = d.height.metric.split('–').length <= 1 ? d.height.metric.split('-') : d.height.metric.split('–');
+				if(height_metric[1] === undefined) height_metric[1] = ''
+
+				if(d.temperament === undefined) d.temperament = 'None'
+				
 					return {
 						id: d.id,
 						name: d.name,
 						temperament: d.temperament,
 						image: d.image.url,
-						weight: d.weight.metric,
+						weight_min: weight_metric[0].trim(),
+						weight_max: weight_metric[1].trim(),
+						height_min: height_metric[0].trim(),
+						height_max: height_metric[1].trim(),
 						origin: 'API'
 					};
 				});
