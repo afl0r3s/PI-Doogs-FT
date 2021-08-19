@@ -18,7 +18,6 @@ function App() {
           <Route path="/about"      component={About} />
           <Route path="*"           component={Error404} />
         </Switch>
-
     </div>
   );
 }
