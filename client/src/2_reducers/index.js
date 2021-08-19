@@ -19,7 +19,7 @@ const initialState = {
 	temperaments: [],	//array de temperamentos que se busca de la BD local
 	loading: false,		//variable para mostrar un mensaje o imagen de Loading
 	totalPages: 0,		//variable en la que se guarda el total de paginas para la paginacion
-	breedsPerPage: [9,12],//razas por pagina, por ahora se usa el valor con indice 0
+	breedsPerPage: [9],//razas por pagina, por ahora se usa el valor con indice 0
 	errorSearch: false,	//variable que indica si existio un error en la busqueda de una raza
 	statePost: false,	//varaible que indica si se guardo una nueva raza
 };
