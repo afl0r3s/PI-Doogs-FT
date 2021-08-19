@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+//import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux'
 import { getBreedsName } from '../../../1_actions';
+import searchStyles from './search.module.css'
 
 export default function Search() {
     const dispatch = useDispatch();
-    const history = useHistory();
+    //const history = useHistory();
     const [breedName, setBreedName] = useState('');
     
     const handleChange = (e) => {
@@ -33,15 +34,15 @@ export default function Search() {
         <form onSubmit={handleSubmit}>
             <input 
                 type="search" 
-                placeholder="write a dog breed for search.."
-                className="imputSearch"
+                placeholder="breed for search.."
+                className={searchStyles.imputSearch}
                 value={breedName}
                 onChange={(e) => handleChange(e)}
             ></input>
             <button
                 type="submit"
-                className="buttonSearch"
-            > Search</button>
+                className={searchStyles.buttonSearch}
+            > <i className="fa fa-search"></i> Search</button>
         </form>
     )
 }

@@ -1,0 +1,48 @@
+a:link, a:visited, a:active {
+    text-decoration:none;
+}
+
+.card {
+    width: 250px;
+    height: 300px;
+    border-radius: 10px;
+    border: 1px solid #5e5e5e;
+    background-color:white;
+    overflow:hidden;
+    margin: 20px;
+    text-align: center;
+    transition: all 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 12px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card img {
+    width: 250px;
+    height: 200px;
+}
+
+.breedName{
+    color: black;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 16px;
+    padding-top: 5px;
+    padding-bottom: 12px;
+}
+
+.breedTemnperaments{
+    
+    height: 70px;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 14px;
+    color: black;
+}
+
+@media (max-width: 552px) {
+    .card:hover {
+        transform: translateY(-15px);
+        box-shadow: 0 12px 16px rgba(0, 0, 0, 0.2);
+    }
+}

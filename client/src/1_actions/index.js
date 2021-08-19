@@ -7,12 +7,19 @@ import {
 	GET_DETAIL,
 	FILTER_SOURCE,
 	SORT_ALPHABETIC,
-	SORT_WEIGHT,
+	//SORT_WEIGHT,
 	GET_TEMPERAMENTS,
-	GET_BREEDTEMPER,
+	GET_BREEDTEMPERAMENT,
 	POST_BREED,
 	LOADING ,
 } from './actionTypes';
+
+export const getTemperaments = () => {
+	return async (dispatch) => {
+		var temperamentsInfo = await axios.get(`http://localhost:3001/temperament`);
+		return dispatch({ type: GET_TEMPERAMENTS, payload: temperamentsInfo.data})
+	}
+}
 
 export const getBreeds = () => {
 	return async (dispatch) => {
@@ -45,6 +52,13 @@ export const getDetail = (id) => {
 	}
 }
 
+export const getBreedstTemperaments = (payload) => {
+	return async (dispatch) => {
+		dispatch({ type: LOADING})
+		return dispatch({ type: GET_BREEDTEMPERAMENT, payload})
+	}
+}
+
 export const filterSource = (payload) => {
 	return (dispatch) => {
 		dispatch({ type: LOADING})
@@ -60,27 +74,6 @@ export const sortAlphabetic = (payload) => {
 	}
 }
 
-export const sortweight = (payload) => {
-	return (dispatch) => {
-		dispatch({ type: LOADING})
-		return dispatch({ type: SORT_WEIGHT, payload})
-	}
-}
-
-export const getTemperaments = () => {
-	return async (dispatch) => {
-		var temperamentsInfo = await axios.get(`http://localhost:3001/temperament`);
-		return dispatch({ type: GET_TEMPERAMENTS, payload: temperamentsInfo.data})
-	}
-}
-
-export const getBreedstTemperaments = (payload) => {
-	return async (dispatch) => {
-		dispatch({ type: LOADING})
-		return dispatch({ type: GET_BREEDTEMPER, payload})
-	}
-}
-
 export const postBreed = (payload) => {
 	return async (dispatch) => {
 		var response = await axios.post(`http://localhost:3001/dog`, payload);
@@ -88,3 +81,11 @@ export const postBreed = (payload) => {
 	}
 }
 
+/*
+export const sortweight = (payload) => {
+	return (dispatch) => {
+		dispatch({ type: LOADING})
+		return dispatch({ type: SORT_WEIGHT, payload})
+	}
+}
+*/

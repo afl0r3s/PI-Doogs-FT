@@ -1,17 +1,17 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import './landing.css'
+import styles from './landing.module.css'
 
 export default function Landing() {
     return (
-        <div className="mainConent">
-            <div className="content">
-                <h1>Dog Mania</h1>
-                <div className="text">The place for Dog lovers...</div>
-                <Link to={'/home'}>
-                    <button className="button">Go to Start &#187; </button>
-                </Link>
-                <div className="develop">"Soy Henry" P.I. App<br/>Developed by Alejandro Flores</div>
+        <div className={styles.mainConent}>
+            <div className={styles.content}>
+                <h1 data-text="Dog Mania">Dog Mania</h1>
+                <div className={styles.text}>The place for Dog lovers... </div>
+                <div className={styles.buttonConteiner}>
+                    <Link to={'/home'}> <button className={styles.button}>Go to Start &#187; </button> </Link> 
+                </div>
+                <div className={styles.develop}>"Soy Henry" P.I. App<br/>Developed by Alejandro Flores</div>
             </div>
         </div>
     )

@@ -1,0 +1,41 @@
+.cardContainer{
+    width: 100%;
+    padding: 0px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: auto;
+}
+
+.pageNumber{
+    display: flex;
+    justify-content: center;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.buttonPag{
+    border: 1px solid black;
+    background-color:royalblue;
+    height: 30px;
+    width: 60px;
+    border-radius: 5px;
+}
+
+.buttonPag:hover{
+    background-color:#11339b;
+    color: white;
+}
+
+.footer{
+    display: flex;
+    justify-content: center;
+}
+
+@media (max-width: 552px) {
+    .cardContainer{
+        margin-top: 5px
+    }
+    .pageNumber{
+        margin-top: 50px;
+    }
+}

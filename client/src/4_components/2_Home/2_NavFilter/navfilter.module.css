@@ -1,0 +1,33 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
+
+.navfiltercontent{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    padding: 0;
+    border: 0px solid black;
+}
+
+.navfilGroup{
+    margin: 10px;
+}
+.navfilTitle{
+    border: 1px solid white;
+}
+
+.navfilGroup select {
+    height: 35px;
+    width: auto;
+    background-color: dodgerblue;
+    border: 1px solid black;
+    border-radius: 10px;
+    font-family: fontAwesome;
+}
+
+.navfilGroup select option{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: rgb(87, 165, 243);
+}

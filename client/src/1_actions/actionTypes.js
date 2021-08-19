@@ -6,6 +6,6 @@ export const FILTER_SOURCE   = 'FILTER_SOURCE';
 export const SORT_ALPHABETIC = 'SORT_ALPHABETIC';
 export const SORT_WEIGHT     = 'SORT_WEIGHT';
 export const GET_TEMPERAMENTS= 'GET_TEMPERAMENTS';
-export const GET_BREEDTEMPER = 'GET_BREEDTEMPER';
+export const GET_BREEDTEMPERAMENT = 'GET_BREEDTEMPERAMENT';
 export const POST_BREED      = 'POST_BREED';
 export const LOADING         = 'LOADING';

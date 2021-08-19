@@ -4,10 +4,11 @@ import Pagination from '../5_Pagination/pagination';
 import Navfilter from '../2_NavFilter/navfilter';
 import Card from '../6_Card/card';
 import ErrorSearch from '../7_ErrorSearch/errorSearch';
-import './contentdisplay.css';
+import contentStyles from './contentdisplay.module.css';
 
 export default function Contentdisplay() {
 	//Access to Redux States
+	//var breedsAll = useSelector((state) => state.breedsAll);
 	var breedsArr = useSelector((state) => state.breeds);
 	var totalPages = useSelector((state) => state.totalPages);
 	var breedsPerPage = useSelector((state) => state.breedsPerPage);
@@ -18,38 +19,44 @@ export default function Contentdisplay() {
 	const indexOfLastCard = currentPage * breedsPerPage[0];
 	const idnexOfFirstCard = indexOfLastCard - breedsPerPage[0];
 	const currentCards = breedsArr.slice(idnexOfFirstCard, indexOfLastCard);
-	//console.log('Data show:', breedsArr)
 
 	const paginateFunction = (num) => {
 		setCurrentPage(num);
 	};
 	function previosPage() {
-		setCurrentPage((currentPage) => currentPage - 1);
+		if(currentPage === 1) setCurrentPage((currentPage) => 1);
+		else setCurrentPage((currentPage) => currentPage - 1);
 	}
 	function nextPage() {
-		setCurrentPage((currentPage) => currentPage + 1);
+		if(currentPage === totalPages) setCurrentPage((currentPage) => totalPages);
+		else setCurrentPage((currentPage) => currentPage + 1);
 	}
 
 	return (
 		<div>
 			{errorSearch ? (
 				<>
-					<div className="cardContainer">
+					<div className={contentStyles.cardContainer}>
 						<ErrorSearch />
 					</div>
 				</>
 			) : (
 				<>
 					<Navfilter />
-					<div className="cardContainer">
+					<div className={contentStyles.pageNumber}>Page #: {currentPage}</div>
+					<div className={contentStyles.cardContainer}>
 						{currentCards.map((e) => (
 								<Card key={e.id} id={e.id} image={e.image} name={e.name} temperament={e.temperament} />
 							))
 						}
+					
 					</div>
-					<button className="buttonPag" onClick={() => previosPage()}> Back </button>
+					<div className={contentStyles.footer}>
+					<button className={contentStyles.buttonPag} onClick={() => previosPage()}> Back </button>
 					<Pagination totalPages={totalPages} paginateFunction={paginateFunction} />
-					<button className="buttonPag" onClick={() => nextPage()}> Next </button>
+					<button className={contentStyles.buttonPag} onClick={() => nextPage()}> Next </button>
+					</div>
+					<p>&nbsp;</p>
 				</>
 			)}
 			

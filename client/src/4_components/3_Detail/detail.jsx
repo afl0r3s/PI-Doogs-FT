@@ -3,8 +3,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useLocation, useHistory } from 'react-router-dom';
 import { getDetail, getBreeds } from '../../1_actions/index';
-
-import './detail.css'
+import navSrchStyles from './detail.module.css'
 
 export default function Detail() {
 	const dispatch = useDispatch();
@@ -27,50 +26,46 @@ export default function Detail() {
 
 	return (
 		<div>
-			{loadState ? (
-				<>
-					<img width="230" src="../dog01.gif" alt="loading.." />
+            <nav className={navSrchStyles.navNav}>
+            <span className={navSrchStyles.navLogo}>Dog Mania App</span>
+                <ul className={navSrchStyles.navMenu}>
+                    <li className={navSrchStyles.navMenuItem}> <Link to={'/home'}> <span className={navSrchStyles.navMenuLink} onClick={(e)=> handleClick(e)}> <i className="fa fa-home"></i> Home</span> </Link> </li>
+                    <li className={navSrchStyles.navMenuItem}> <Link to={'/about'}> <span className={navSrchStyles.navMenuLink} > <i className="fa fa-info"></i> About</span> </Link> </li>
+                    <li className={navSrchStyles.navMenuItem}> <Link to={'/add'}> <span className={navSrchStyles.navMenuLink} > <i className="fa fa-paw"></i> Create</span> </Link> </li>
+                </ul>
+            </nav>
+			{loadState ?
+				<> 
+					<img width="230" src="../dog01.gif" alt="error" />
 				</>
-			) : (
+			: (
 				<>
-                    <Link to={'/home'}>
-                        <button  onClick={(e)=> handleClick(e)}>Home</button>
-                    </Link>
-                    <h1>Breed Detail:</h1>
-					<div className="cardContent">
-						<img src={breedDetail.image} alt={breedDetail.name} />
-                        <div className="cardTextContent">
-                            <div className="cardText">
-                                <div>
-                                    <span className="detailTitle">ID #:</span>
-                                    <span className="detailInfo">{breedDetail.id}</span>
+                    <div className={navSrchStyles.cardContent}>
+                        <h1>Breed Detail:</h1>
+                    </div>
+                    <div className={navSrchStyles.cardContent}>
+                        <div className={navSrchStyles.card}>
+                            <span>
+                                <img src={breedDetail.image} alt={breedDetail.name} />
+                            </span>
+                            <span className={navSrchStyles.cardTextContent}>
+                                <div className={navSrchStyles.cardText}>
+                                    <div className={navSrchStyles.detailTitle}>ID #:</div>
+                                    <div className={navSrchStyles.detailInfo}>{breedDetail.id}</div>
+                                    <div className={navSrchStyles.detailTitle}>Name :</div>
+                                    <div className={navSrchStyles.detailInfo}>{breedDetail.name}</div>
+                                    <div className={navSrchStyles.detailTitle}>Weight :</div>
+                                    <div className={navSrchStyles.detailInfo}>{breedDetail.Weight} Kg.</div>
+                                    <div className={navSrchStyles.detailTitle}>Height :</div>
+                                    <div className={navSrchStyles.detailInfo}>{breedDetail.height} cm.</div>
+                                    <div className={navSrchStyles.detailTitle}>Life Span</div>
+                                    <div className={navSrchStyles.detailInfo}>{breedDetail.life_span}</div>
+                                    <div className={navSrchStyles.detailTitle}>Temperaments</div>
+                                    <div className={navSrchStyles.detailInfo}>{breedDetail.temperament}</div>
                                 </div>
-                                <div>
-                                    <span className="detailTitle">Name:</span>
-                                    <span className="detailInfo">{breedDetail.name}</span>
-                                </div>
-                                <div>
-                                    <span className="detailTitle">Weight:</span>
-                                    <span className="detailInfo">{breedDetail.Weight}</span>
-                                </div>
-                                <div>
-                                    <span className="detailTitle">Height:</span>
-                                    <span className="detailInfo">{breedDetail.height}</span>
-                                </div>
-                                <div>
-                                    <span className="detailTitle">Life Span:</span>
-                                    <span className="detailInfo">{breedDetail.life_span}</span>
-                                </div>
-                                <div>
-                                    <span className="detailTitle">Temperament:</span>
-                                </div>
-                                <div>
-                                    <span className="detailInfo">{breedDetail.temperament}</span>
-                                </div>
-
-                            </div>
+                            </span>
                         </div>
-					</div>
+                    </div>
 				</>
 			)}
 		</div>

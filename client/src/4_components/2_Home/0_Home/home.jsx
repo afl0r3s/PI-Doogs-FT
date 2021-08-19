@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getBreeds } from '../../../1_actions';
 import Navsearch from '../1_NavSearch/navsearch';
 import Contentdisplay from '../3_ContentDisplay/contentdisplay';
-import './home.css';
+import homeStyles from './home.module.css';
 
 export default function Home() {
 	var loadState = useSelector((state) => state.loading);
@@ -15,11 +15,13 @@ export default function Home() {
 	
 
 	return (
-		<div className="homeMain">
+		<div className={homeStyles.homeMain}>
 			{loadState ? 
 				<>
 					<Navsearch />
-					<img width="230" src="./dog01.gif" alt="loading.."/>
+					<div className={homeStyles.imgLoad}>
+						<img width="230" src="./dog01.gif" alt="loading.."/>
+					</div>
 				</> : 
 				<> 
 					<Navsearch />

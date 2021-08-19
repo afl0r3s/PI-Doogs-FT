@@ -5,37 +5,36 @@ import {
 	GET_DETAIL,
 	FILTER_SOURCE,
 	SORT_ALPHABETIC,
-	SORT_WEIGHT,
+	//SORT_WEIGHT,
 	GET_TEMPERAMENTS,
-	GET_BREEDTEMPER,
+	GET_BREEDTEMPERAMENT,
 	POST_BREED,
 	LOADING,
 } from '../1_actions/actionTypes'
 
 const initialState = {
-	breeds: [],
-	breedsAll: [],
-	breedDetail: [],
-	temperaments: [],
-	loading: false,
-	totalPages: 0,
-	breedsPerPage: [9,12],
-	errorSearch: false,
-	statePost: false,
+	breedsAll: [],		//array de razas que tendra toda la info y no se usara para filtrados
+	breeds: [],  		//array de razas que se usara para todos los filtrados
+	breedDetail: [],	//array con el detalle de la raza buscada
+	temperaments: [],	//array de temperamentos que se busca de la BD local
+	loading: false,		//variable para mostrar un mensaje o imagen de Loading
+	totalPages: 0,		//variable en la que se guarda el total de paginas para la paginacion
+	breedsPerPage: [9,12],//razas por pagina, por ahora se usa el valor con indice 0
+	errorSearch: false,	//variable que indica si existio un error en la busqueda de una raza
+	statePost: false,	//varaible que indica si se guardo una nueva raza
 };
 
 function rootReducer(state = initialState, action) {
-	console.log("action: ",action)
+	//console.log("action: ",action)
 	switch (action.type) {
 		case GET_BREEDS:
 			return {
 				...state,
 				loading: false,
 				errorSearch: false,
-				breeds: action.payload,
 				breedsAll: action.payload,
+				breeds:    action.payload,
 				totalPages: Math.ceil(action.payload.length / state.breedsPerPage[0]),
-				statePost: false,
 			};
 		case GET_TEMPERAMENTS:
 			return {
@@ -57,23 +56,42 @@ function rootReducer(state = initialState, action) {
 				breedDetail: action.payload,
 				totalPages: Math.ceil(action.payload.length / state.breedsPerPage[0]),
 			};
-		case FILTER_SOURCE:
+		case GET_BREEDTEMPERAMENT:
 			const allBreeds = state.breedsAll;
-			var breedsFiltered = action.payload === 'ALL' ? 
-				breedsFiltered = state.breedsAll :
-				breedsFiltered = allBreeds.filter(e => e.origin === action.payload)
+			//var breedTemnperaments = state.breedsAll;
+			var breedTemnperaments = action.payload === 'ALL' ? 
+				breedTemnperaments = state.breedsAll :
+				breedTemnperaments = allBreeds.filter(e => e.temperament && e.temperament.includes(action.payload))
 			return {
 				...state,
 				loading: false,
-				errorSearch: false,
+				breeds: breedTemnperaments,
+				totalPages: Math.ceil(breedTemnperaments.length / state.breedsPerPage[0]),
+			};
+		case FILTER_SOURCE:
+			const filterBreeds = state.breedsAll;
+			var breedsFiltered = action.payload === 'ALL' ? 
+				breedsFiltered = state.breedsAll :
+				breedsFiltered = filterBreeds.filter(e => e.origin === action.payload)
+			return {
+				...state,
+				loading: false,
 				breeds: breedsFiltered,
 				totalPages: Math.ceil(breedsFiltered.length / state.breedsPerPage[0]),
 			};
 		case SORT_ALPHABETIC:
-			var sortArray = state.breedsAll;
+			var sortArray = state.breeds;
 			if(action.payload === 'ALL' ) sortArray.sort((a,b) => a.id - b.id )
-			else{
-				sortArray =  action.payload === 'ZA' ?
+			else if(action.payload === 'AZ'){
+				sortArray.sort((a,b) => {
+					const value1 = b.name;
+					const value2 = a.name;
+					if(value1 > value2) return -1
+					if(value1 < value2) return 1
+					else { return 0 }
+				})
+			}
+			else if(action.payload === 'ZA'){
 					sortArray.sort((a,b) => {
 						const value1 = a.name;
 						const value2 = b.name;
@@ -81,16 +99,9 @@ function rootReducer(state = initialState, action) {
 						if(value1 < value2) return 1
 						else { return 0 }
 					})
-				:
-					sortArray.sort((a,b) => {
-						const value1 = b.name;
-						const value2 = a.name;
-						if(value1 > value2) return -1
-						if(value1 < value2) return 1
-						else { return 0 }
-					})
 			}
-
+			else if(action.payload === 'MoreLess') sortArray.sort((a,b) => b.weight_min - a.weight_min )
+			else sortArray.sort((a,b) => a.weight_min - b.weight_min )
 			return {
 				...state,
 				loading: false,
@@ -98,6 +109,30 @@ function rootReducer(state = initialState, action) {
 				breeds: sortArray,
 				totalPages: Math.ceil(sortArray.length / state.breedsPerPage[0]),
 			};
+		case POST_BREED:
+			var stateSave = false;
+			if(action.payload) stateSave = true;
+			return {
+				...state,
+				statePost: stateSave,
+			};
+		case LOADING:
+			return {
+				...state,
+				loading: true,
+			};
+		case ERROR_SEARCH:
+			return {
+				...state,
+				loading: false,
+				errorSearch: true,
+				breedDetail: action.payload,
+		};
+		default: {
+			return state;		
+		}
+		
+		/*
 		case SORT_WEIGHT:
 			var sortArray2 = state.breedsAll;
 			if(action.payload === 'ALL' ) sortArray2.sort((a,b) => a.id - b.id )
@@ -110,39 +145,8 @@ function rootReducer(state = initialState, action) {
 				breeds: sortArray2,
 				totalPages: Math.ceil(sortArray2.length / state.breedsPerPage[0]),
 			};
-		case GET_BREEDTEMPER:
-			var breedTemnperaments = state.breedsAll;
-			breedTemnperaments = action.payload === 'ALL' ? 
-				breedTemnperaments = state.breedsAll :
-				breedTemnperaments = breedTemnperaments.filter(e => e.temperament && e.temperament.includes(action.payload))
-			return {
-				...state,
-				loading: false,
-				errorSearch: false,
-				breeds: breedTemnperaments,
-				totalPages: Math.ceil(breedTemnperaments.length / state.breedsPerPage[0]),
-			};
-		case POST_BREED:
-			var stateSave = false;
-			if(action.payload) stateSave = true;
-			return {
-				...state,
-				statePost: stateSave,
-			};
-		case ERROR_SEARCH:
-			return {
-				...state,
-				loading: false,
-				errorSearch: true,
-				breedDetail: action.payload,
-		};
-		case LOADING:
-			return {
-				...state,
-				loading: true,
-			};
-		default: {
-			return state;		}
+		*/
+
 	}
 };
 

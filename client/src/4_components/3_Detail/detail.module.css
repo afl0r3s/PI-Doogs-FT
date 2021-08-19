@@ -1,0 +1,79 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.navNav{
+    background-color: dodgerblue;
+    height: 80px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+}
+
+.navLogo{
+    font-family: 'Righteous', cursive;
+    font-size: 25px;
+    padding: 0 10px;
+    line-height: 80px;
+}
+
+
+
+.cardContent {
+    background-color: none;
+	display: flex;
+    justify-content: center;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: #2069b3;
+}
+
+.card {
+    background-color: none;
+    border: 1px solid black;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    width: 730px;
+    height: 283px;
+    transition: all 0.3s;
+}
+
+.card img {
+    width: 350px;
+    height: 280px;
+    border-radius: 5px;
+}
+
+.cardTextContent {
+    width: 378px;
+}
+
+.cardText{
+    background-color: none;
+    color: black;
+    display: grid;
+    grid-template-columns: 130px 240px;
+}
+
+.detailTitle{
+    height: 30px;
+    margin-top: 5px;
+    margin-left: 5px;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: rgba(51, 76, 145, 0.678);
+}
+
+.detailInfo{
+    margin-top: 5px;
+    margin-left: 5px;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: rgb(111, 187, 40);
+}
