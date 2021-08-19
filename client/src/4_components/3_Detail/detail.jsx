@@ -55,7 +55,7 @@ export default function Detail() {
                                     <div className={navSrchStyles.detailTitle}>Name :</div>
                                     <div className={navSrchStyles.detailInfo}>{breedDetail.name}</div>
                                     <div className={navSrchStyles.detailTitle}>Weight :</div>
-                                    <div className={navSrchStyles.detailInfo}>{breedDetail.Weight} Kg.</div>
+                                    <div className={navSrchStyles.detailInfo}>{breedDetail.weight} Kg.</div>
                                     <div className={navSrchStyles.detailTitle}>Height :</div>
                                     <div className={navSrchStyles.detailInfo}>{breedDetail.height} cm.</div>
                                     <div className={navSrchStyles.detailTitle}>Life Span</div>
