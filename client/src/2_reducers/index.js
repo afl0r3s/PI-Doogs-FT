@@ -4,8 +4,7 @@ import {
 	ERROR_SEARCH,
 	GET_DETAIL,
 	FILTER_SOURCE,
-	SORT_ALPHABETIC,
-	//SORT_WEIGHT,
+	SORT_GENERAL,
 	GET_TEMPERAMENTS,
 	GET_BREEDTEMPERAMENT,
 	POST_BREED,
@@ -79,7 +78,7 @@ function rootReducer(state = initialState, action) {
 				breeds: breedsFiltered,
 				totalPages: Math.ceil(breedsFiltered.length / state.breedsPerPage[0]),
 			};
-		case SORT_ALPHABETIC:
+		case SORT_GENERAL:
 			var sortArray = state.breeds;
 			if(action.payload === 'ALL' ) sortArray.sort((a,b) => a.id - b.id )
 			else if(action.payload === 'AZ'){

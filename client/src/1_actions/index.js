@@ -6,8 +6,7 @@ import {
 	ERROR_SEARCH,
 	GET_DETAIL,
 	FILTER_SOURCE,
-	SORT_ALPHABETIC,
-	//SORT_WEIGHT,
+	SORT_GENERAL,
 	GET_TEMPERAMENTS,
 	GET_BREEDTEMPERAMENT,
 	POST_BREED,
@@ -70,7 +69,7 @@ export const filterSource = (payload) => {
 export const sortAlphabetic = (payload) => {
 	return (dispatch) => {
 		dispatch({ type: LOADING})
-		return dispatch({ type: SORT_ALPHABETIC, payload})
+		return dispatch({ type: SORT_GENERAL, payload})
 	}
 }
 
