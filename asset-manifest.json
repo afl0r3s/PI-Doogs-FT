@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/github.io/DogMania/static/css/main.91141c88.chunk.css",
-    "main.js": "/github.io/DogMania/static/js/main.394ddc69.chunk.js",
-    "main.js.map": "/github.io/DogMania/static/js/main.394ddc69.chunk.js.map",
-    "runtime-main.js": "/github.io/DogMania/static/js/runtime-main.e72fa1d4.js",
-    "runtime-main.js.map": "/github.io/DogMania/static/js/runtime-main.e72fa1d4.js.map",
-    "static/js/2.25aad5f5.chunk.js": "/github.io/DogMania/static/js/2.25aad5f5.chunk.js",
-    "static/js/2.25aad5f5.chunk.js.map": "/github.io/DogMania/static/js/2.25aad5f5.chunk.js.map",
-    "static/js/3.9e7a3ac6.chunk.js": "/github.io/DogMania/static/js/3.9e7a3ac6.chunk.js",
-    "static/js/3.9e7a3ac6.chunk.js.map": "/github.io/DogMania/static/js/3.9e7a3ac6.chunk.js.map",
-    "index.html": "/github.io/DogMania/index.html",
-    "static/css/main.91141c88.chunk.css.map": "/github.io/DogMania/static/css/main.91141c88.chunk.css.map",
-    "static/js/2.25aad5f5.chunk.js.LICENSE.txt": "/github.io/DogMania/static/js/2.25aad5f5.chunk.js.LICENSE.txt",
-    "static/media/landing.module.css": "/github.io/DogMania/static/media/dog_landing.c38c70d1.jpg"
+    "main.css": "/PI-Doogs-FT15a/static/css/main.6a371155.chunk.css",
+    "main.js": "/PI-Doogs-FT15a/static/js/main.394ddc69.chunk.js",
+    "main.js.map": "/PI-Doogs-FT15a/static/js/main.394ddc69.chunk.js.map",
+    "runtime-main.js": "/PI-Doogs-FT15a/static/js/runtime-main.b63f9f84.js",
+    "runtime-main.js.map": "/PI-Doogs-FT15a/static/js/runtime-main.b63f9f84.js.map",
+    "static/js/2.25aad5f5.chunk.js": "/PI-Doogs-FT15a/static/js/2.25aad5f5.chunk.js",
+    "static/js/2.25aad5f5.chunk.js.map": "/PI-Doogs-FT15a/static/js/2.25aad5f5.chunk.js.map",
+    "static/js/3.9e7a3ac6.chunk.js": "/PI-Doogs-FT15a/static/js/3.9e7a3ac6.chunk.js",
+    "static/js/3.9e7a3ac6.chunk.js.map": "/PI-Doogs-FT15a/static/js/3.9e7a3ac6.chunk.js.map",
+    "index.html": "/PI-Doogs-FT15a/index.html",
+    "static/css/main.6a371155.chunk.css.map": "/PI-Doogs-FT15a/static/css/main.6a371155.chunk.css.map",
+    "static/js/2.25aad5f5.chunk.js.LICENSE.txt": "/PI-Doogs-FT15a/static/js/2.25aad5f5.chunk.js.LICENSE.txt",
+    "static/media/landing.module.css": "/PI-Doogs-FT15a/static/media/dog_landing.c38c70d1.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.e72fa1d4.js",
+    "static/js/runtime-main.b63f9f84.js",
     "static/js/2.25aad5f5.chunk.js",
-    "static/css/main.91141c88.chunk.css",
+    "static/css/main.6a371155.chunk.css",
     "static/js/main.394ddc69.chunk.js"
   ]
 }
